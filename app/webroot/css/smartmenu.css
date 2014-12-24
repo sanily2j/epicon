@@ -1,0 +1,563 @@
+/* ----- SmartMenus Core CSS ----- */
+.sm, .sm ul, .sm li {
+  display: block;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+  direction: ltr;
+}
+
+ul.sm li {
+  position: relative;
+}
+
+ul.sm a {
+  position: relative;
+  display: block;
+}
+
+ul.sm a.disabled {
+  cursor: default;
+}
+
+ul.sm ul {
+  position: absolute;
+  top: -999999px;
+  left: -800px;
+  width: 100px;
+}
+
+ul.sm li {
+  float: left;
+}
+
+ul.sm-rtl {
+  direction: rtl;
+}
+
+ul.sm-rtl li {
+  float: right;
+}
+
+ul.sm ul li, ul.sm-vertical li {
+  float: none;
+}
+
+ul.sm a {
+  white-space: nowrap;
+}
+
+ul.sm ul a, ul.sm-vertical a {
+  white-space: normal;
+}
+
+* html ul.sm-vertical li {
+  float: left;
+  width: 100%;
+}
+
+* html ul.sm-vertical ul li {
+  float: none;
+  width: auto;
+}
+
+*:first-child + html ul.sm-vertical > li {
+  float: left;
+  width: 100%;
+}
+
+ul.sm ul.sm-nowrap > li > a {
+  white-space: nowrap;
+}
+
+ul.sm:after {
+  content: "\00a0";
+  display: block;
+  height: 0;
+  font: 0/0 serif;
+  clear: both;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+* html ul.sm {
+  height: 1px;
+}
+
+*:first-child + html ul.sm {
+  min-height: 1px;
+}
+
+ul.sm li *, ul.sm li *:before, ul.sm li *:after {
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+ul.sm {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ----- Menu box ----- */
+.epicon-menu {
+  padding: 0 12px;
+  background: #fff;
+}
+.epicon-menu ul {
+  padding: 5px 0px;
+  background: #fff;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  border: 1px solid #dedede;
+  border-top: none;
+}
+.epicon-menu ul ul {
+  border: 1px solid #dedede;
+}
+
+/* first sub level carets */
+.epicon-menu-vertical {
+  padding: 10px 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+/* no carets for vertical main */
+.epicon-menu-vertical > li > ul:before,
+.epicon-menu-vertical > li > ul:after {
+  display: none;
+}
+
+/* ----- Menu items ----- */
+.epicon-menu a {
+  padding: 12px 18px;
+  color: #a1a1a1;
+  font-size: 13px;
+  line-height: 17px;
+  font-family: "Raleway", sans-serif;
+  text-decoration: none;
+}
+.epicon-menu a:hover, .epicon-menu a:focus, .epicon-menu a:active, .epicon-menu a.highlighted {
+  color: #ff8d2c;
+}
+
+.epicon-menu-vertical a:hover,
+.epicon-menu-vertical a:focus,
+.epicon-menu-vertical a:active,
+.epicon-menu-vertical a.highlighted {
+  background: #fff;
+}
+
+.epicon-menu-vertical a,
+.epicon-menu ul a {
+  padding: 10px 20px;
+}
+
+.epicon-menu-vertical a.has-submenu,
+.epicon-menu ul a.has-submenu {
+  padding-right: 40px;
+}
+
+.epicon-menu ul a {
+  font-size: 13px;
+}
+
+.epicon-menu ul a:hover,
+.epicon-menu ul a:focus,
+.epicon-menu ul a:active,
+.epicon-menu ul a.highlighted {
+  color: #ff8d2c;
+  background: #fff;
+}
+
+/* current items - add the class manually to some item or check the "markCurrentItem" script option */
+.epicon-menu a.active,
+.epicon-menu a.current,
+.epicon-menu a.current:hover,
+.epicon-menu a.current:focus,
+.epicon-menu a.current:active {
+  color: #ff8d2c;
+}
+
+/* ----- Sub menu indicators ----- */
+.epicon-menu a span.sub-arrow {
+  top: 50%;
+}
+.epicon-menu a span.sub-arrow:after {
+  width: 0px;
+  height: 0px;
+  font-size: 10px;
+  right: -7px;
+  float: right;
+  position: relative;
+}
+
+.epicon-menu a:hover span.sub-arrow:after,
+.epicon-menu a:focus span.sub-arrow:after,
+.epicon-menu a:active span.sub-arrow:after,
+.epicon-menu a.highlighted span.sub-arrow:after {
+  color: #ff8d2c;
+}
+
+.epicon-menu-vertical a span.sub-arrow,
+.epicon-menu ul a span.sub-arrow {
+  top: 50%;
+}
+.epicon-menu-vertical a span.sub-arrow:after,
+.epicon-menu ul a span.sub-arrow:after {
+  width: 0px;
+  height: 0px;
+  font-size: 10px;
+  right: -7px;
+  float: right;
+  position: relative;
+  font-family: "WebHostingHub-Glyphs";
+  font-style: normal;
+  color: #a1a1a1;
+  content: "\f488";
+}
+
+/* ----- Scrolling arrows containers ----- */
+.epicon-menu span.scroll-up,
+.epicon-menu span.scroll-down {
+  position: absolute;
+  display: none;
+  visibility: hidden;
+  overflow: hidden;
+  background: #fff;
+  height: 20px;
+  /* width and position will be automatically set by the script */
+}
+
+.epicon-menu span.scroll-up:hover,
+.epicon-menu span.scroll-down:hover {
+  background: #eee;
+}
+
+.epicon-menu span.scroll-up-arrow,
+.epicon-menu span.scroll-down-arrow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.epicon-menu span.scroll-up-arrow:after,
+.epicon-menu span.scroll-down-arrow:after {
+  top: -5px;
+  left: -6px;
+  float: right;
+  width: 0px;
+  height: 0px;
+  font-size: 10px;
+  position: relative;
+  font-family: "WebHostingHub-Glyphs";
+  font-style: normal;
+  color: #a1a1a1;
+  content: "\f48a";
+}
+
+.epicon-menu span.scroll-up:hover span.scroll-up-arrow:after {
+  color: #ff8d2c;
+}
+
+.epicon-menu span.scroll-down-arrow:after {
+  top: -5px;
+  float: right;
+  width: 0px;
+  height: 0px;
+  font-size: 10px;
+  position: relative;
+  font-family: "WebHostingHub-Glyphs";
+  font-style: normal;
+  color: #a1a1a1;
+  content: "\f48b";
+}
+
+.epicon-menu span.scroll-down:hover span.scroll-down-arrow:after {
+  color: #ff8d2c;
+}
+
+/* Mega menu */
+.epicon-menu,
+.epicon-menu > li.mega-menu {
+  font-family: "Raleway", sans-serif;
+  color: #a1a1a1;
+  position: static !important;
+}
+
+/* carets for megamenu */
+.epicon-menu > li.mega-menu a:before, .epicon-menu > li.mega-menu a:after,
+.epicon-menu > li.mega-menu a.highlighted:before,
+.epicon-menu > li.mega-menu a.highlighted:after {
+  -webkit-transition: all 4s ease-in-out;
+  -moz-transition: all 4s ease-in-out;
+  transition: all 4s ease-in-out;
+  opacity: 0;
+}
+
+.epicon-menu > li > ul.mega-menu {
+  margin-right: 10px !important;
+  margin-left: 10px !important;
+  right: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+.epicon-menu > li > ul.mega-menu:before {
+  display: none;
+}
+.epicon-menu > li > ul.mega-menu:after {
+  display: none;
+}
+
+.epicon-menu .mega-menu-content {
+  padding: 10px 20px;
+  float: left;
+  text-align: left;
+}
+.epicon-menu .mega-menu-content .column, .epicon-menu .mega-menu-content .columns {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.epicon-menu .mega-menu-sub-content {
+  padding: 0px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.epicon-menu .mega-menu-title {
+  font-weight: bold;
+  font-size: 14px;
+  padding: 13px 0px;
+  display: block;
+}
+
+.epicon-menu .mega-menu-list {
+  top: 0;
+  left: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+  border: none;
+  box-shadow: none;
+  display: block;
+}
+.epicon-menu .mega-menu-list a {
+  padding: 5px 0 5px 5px;
+}
+
+/* ----- Menu Responsivenes ----- */
+@media screen and (max-width: 850px) {
+  .epicon-menu:not(.epicon-menu-vertical) > li > a {
+    padding-left: 8px;
+    padding-right: 25px;
+  }
+
+  .epicon-menu:not(.epicon-menu-vertical) > li > a.has-submenu {
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .epicon-menu:not(.epicon-menu-vertical) > li > a {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+
+  .epicon-menu:not(.epicon-menu-vertical) > li > a.has-submenu {
+    padding-right: 25px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .epicon-menu a span.sub-arrow {
+    top: 50%;
+  }
+  .epicon-menu a span.sub-arrow:after {
+    background: red !important;
+    width: 0px;
+    height: 0px;
+    font-size: 10px;
+    float: right;
+    position: relative;
+    top: 5px;
+    font-family: "WebHostingHub-Glyphs";
+    font-style: normal;
+    color: #a1a1a1;
+    content: "\f48b";
+  }
+
+  /* The following will make the sub menus collapsible for small screen devices (it's not recommended editing these) */
+  ul.epicon-menu {
+    width: auto !important;
+  }
+  ul.epicon-menu a {
+    transition: none !important;
+    -moz-transition: none !important;
+    -webkit-transition: none !important;
+  }
+
+  ul.epicon-menu ul {
+    display: none;
+    position: static !important;
+    top: auto !important;
+    left: auto !important;
+    margin-left: 0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    min-width: 0 !important;
+    max-width: none !important;
+  }
+
+  ul.epicon-menu > li {
+    float: none;
+    clear: both;
+  }
+
+  ul.epicon-menu > li > a,
+  ul.epicon-menu ul.sm-nowrap > li > a {
+    white-space: normal;
+  }
+
+  ul.epicon-menu iframe {
+    display: none;
+  }
+
+  /* maleo edit menu */
+  /* Uncomment this rule to disable completely the sub menus for small screen devices */
+  /*.sm-clean ul, .sm-clean span.sub-arrow, .sm-clean iframe {
+  	display:none !important;
+  }*/
+  /* ----- Menu Box Responsivenes ----- */
+  .epicon-menu {
+    padding: 0;
+  }
+
+  .epicon-menu ul {
+    border: 0;
+    padding: 0;
+    /* darken the background of the sub menus */
+    background: #fff;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .epicon-menu ul ul {
+    border: none;
+  }
+
+  /* no carets */
+  .epicon-menu > li > ul:before,
+  .epicon-menu > li > ul:after {
+    display: none;
+  }
+
+  /* ----- Menu items Responsivenes ----- */
+  .epicon-menu a {
+    padding: 13px 5px 13px 13px !important;
+    background: transparent !important;
+  }
+
+  /* add some text indentation for the 2+ level sub menu items */
+  .epicon-menu ul a {
+    border-left: 8px solid transparent;
+  }
+
+  .epicon-menu ul ul a {
+    border-left: 16px solid transparent;
+  }
+
+  .epicon-menu ul ul ul a {
+    border-left: 24px solid transparent;
+  }
+
+  .epicon-menu ul ul ul ul a {
+    border-left: 32px solid transparent;
+  }
+
+  .epicon-menu ul ul ul ul ul a {
+    border-left: 40px solid transparent;
+  }
+
+  /* ----- Mega menu Responsivenes ----- */
+  .epicon-menu > li > ul.mega-menu {
+    margin-right: 0px !important;
+    margin-left: 0px !important;
+  }
+
+  .epicon-menu > li > ul.mega-menu > li {
+    clear: both;
+  }
+
+  .epicon-menu .mega-menu-content {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .epicon-menu .mega-menu-content {
+    padding: 0;
+  }
+
+  .epicon-menu .mega-menu-sub-content {
+    padding: 0px 28px 13px;
+  }
+
+  .epicon-menu .mega-menu-title {
+    padding: 13px 28px 13px 28px;
+  }
+
+  .epicon-menu .mega-menu-list li:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .epicon-menu .mega-menu-list li a:hover,
+  .epicon-menu .mega-menu-list li a:focus,
+  .epicon-menu .mega-menu-list li a:active {
+    color: #ff8d2c !important;
+  }
+
+  .epicon-menu > li.mega-menu a:hover:before,
+  .epicon-menu > li.mega-menu a:focus:before,
+  .epicon-menu > li.mega-menu a:active:before,
+  .epicon-menu > li.mega-menu a.highlighted:before {
+    display: none;
+  }
+  .epicon-menu > li.mega-menu a:hover:after,
+  .epicon-menu > li.mega-menu a:focus:after,
+  .epicon-menu > li.mega-menu a:active:after,
+  .epicon-menu > li.mega-menu a.highlighted:after {
+    display: none;
+  }
+
+  /* ----- Sub menu indicators Responsivenes ----- */
+  .epicon-menu a span.sub-arrow:after,
+  .epicon-menu ul a span.sub-arrow:after {
+    right: 20px;
+  }
+
+  .epicon-menu ul a span.sub-arrow:after {
+    font-family: "WebHostingHub-Glyphs";
+    font-style: normal;
+    color: #a1a1a1;
+    content: "\f48b";
+  }
+
+  /* Hide sub indicator when item is expanded - we enable the item link when it's expanded */
+  .epicon-menu a.highlighted span.sub-arrow:after {
+    font-family: "WebHostingHub-Glyphs";
+    font-style: normal;
+    color: #a1a1a1;
+    content: "\f48a";
+  }
+
+  /* ----- Items separators Responsivenes ----- */
+  .epicon-menu li {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .epicon-menu > li:first-child {
+    border-top: 0;
+  }
+}
